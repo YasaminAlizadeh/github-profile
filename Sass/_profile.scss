@@ -76,7 +76,6 @@ main {
           color: black;
           font-weight: 700;
           font-size: 150%;
-          word-break: break-all;
           transition: all 0.3s ease-in-out;
 
           &:hover {
@@ -135,6 +134,7 @@ main {
         gap: 1rem;
 
         .profile__blog {
+          word-break: break-all;
           color: rgb(72, 105, 116);
         }
 
