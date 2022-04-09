@@ -78,10 +78,24 @@ main {
       transform: scaleY(1); }
     main .profile__container .img__container {
       grid-area: img;
+      position: relative;
       width: min(100%, 15rem); }
       main .profile__container .img__container .profile__img {
         width: 100%;
         border-radius: 50%; }
+      main .profile__container .img__container .profile__hireable {
+        display: none;
+        position: absolute;
+        bottom: 1.25rem;
+        right: 1.25rem;
+        width: min-content;
+        padding: 0.5rem;
+        border-radius: 50%;
+        background-color: #004777;
+        color: #fff; }
+        main .profile__container .img__container .profile__hireable--visible {
+          display: grid;
+          place-items: center; }
       @media screen and (min-width: 576px) {
         main .profile__container .img__container {
           align-self: center; } }
@@ -136,6 +150,7 @@ main {
         flex-direction: column;
         gap: 1rem; }
         main .profile__container .content__container .info__container .profile__blog {
+          word-break: break-all;
           color: #486974; }
         main .profile__container .content__container .info__container .profile__twitter {
           padding: 1rem;

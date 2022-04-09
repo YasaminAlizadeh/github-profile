@@ -47,6 +47,7 @@ const displayProfile = (data) => {
     organizations_url,
     public_repos,
     twitter_username,
+    hireable,
   } = data;
 
   document
@@ -64,6 +65,7 @@ const displayProfile = (data) => {
   const profileBio = document.querySelector("#profile-bio");
   const profileBlog = document.querySelector("#profile-blog");
   const profileTwitter = document.querySelector("#profile-twitter");
+  const profileHireable = document.querySelector("#profile-hireable");
 
   profileContainer.classList.add("profile__container--fetched");
   profileImg.src = avatar_url;
@@ -98,6 +100,7 @@ const displayProfile = (data) => {
   profileBio.innerText = bio;
   profileBlog.href = blog;
   profileBlog.innerText = blog;
+  hireable && profileHireable.classList.add("profile__hireable--visible");
   //   profileTwitter.href = `https://twitter.com/${twitter_username}`;
 };
 
