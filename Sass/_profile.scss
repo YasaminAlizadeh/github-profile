@@ -1,0 +1,342 @@
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background-image: linear-gradient(
+    141deg,
+    rgb(0, 27, 75),
+    rgb(2, 68, 122),
+    rgb(152, 203, 220),
+    rgb(214, 232, 238)
+  );
+  background-size: 300%;
+  background-position: left;
+  animation: rainbow 20s linear infinite;
+
+  @keyframes rainbow {
+    0%,
+    100% {
+      background-position: left;
+    }
+
+    50% {
+      background-position: right;
+    }
+  }
+
+  .profile__container {
+    position: relative;
+    width: 90%;
+    display: grid;
+    justify-items: center;
+    grid-template-areas: "img" "content" "actions" "followers";
+    gap: 1rem;
+    padding: min(5vw, 3.5rem);
+    border-radius: 0.5rem;
+    background-image: linear-gradient(141deg, #fff, #f7f7f7, #fff);
+    box-shadow: rgba(0, 8, 22, 0.1) 0px 1px 1px 0px inset,
+      rgba(0, 8, 22, 0.25) 0px 50px 100px -20px,
+      rgba(0, 8, 22, 0.3) 0px 30px 60px -30px;
+    transform: scaleY(0);
+    transition: all 0.3s ease-in-out;
+
+    &--fetched {
+      transform: scaleY(1);
+    }
+
+    .img__container {
+      grid-area: img;
+      width: min(100%, 15rem);
+
+      .profile__img {
+        width: 100%;
+        border-radius: 50%;
+      }
+
+      @media screen and (min-width: 576px) {
+        align-self: center;
+      }
+    }
+
+    .content__container {
+      grid-area: content;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+
+      .profile__name {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .profile__link {
+          color: black;
+          font-weight: 700;
+          font-size: 150%;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+
+        .profile__username {
+          color: rgba(0, 0, 0, 0.4);
+        }
+
+        @media screen and (min-width: 576px) {
+          flex-direction: row;
+          align-items: center;
+          gap: 1rem;
+        }
+      }
+
+      .profile__location {
+        display: flex;
+        align-items: center;
+        font-size: 95%;
+        color: rgba(0, 0, 0, 0.4);
+      }
+
+      .activity__container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+
+        .activity {
+          color: rgba(0, 0, 0, 0.4);
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+
+          span {
+            font-weight: 600;
+            color: rgb(0, 0, 0);
+            transition: all 0.3s ease-in-out;
+          }
+
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+
+        @media screen and (min-width: 768px) {
+          flex-direction: row;
+          gap: 2.5rem;
+        }
+      }
+
+      .info__container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .profile__blog {
+          color: rgb(72, 105, 116);
+        }
+
+        .profile__twitter {
+          padding: 1rem;
+          color: #00acee;
+        }
+      }
+    }
+
+    .actions__container {
+      grid-area: actions;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+
+      .action__btn {
+        width: 100%;
+        padding: min(3vw, 1rem) min(5vw, 1.5rem);
+        border: none;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        font-size: 90%;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          opacity: 0.75;
+        }
+
+        @media screen and (min-width: 576px) {
+          width: unset;
+        }
+      }
+
+      @media screen and (min-width: 300px) {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      @media screen and (min-width: 576px) {
+        justify-content: flex-end;
+      }
+
+      @media screen and (min-width: 768px) {
+        margin-top: unset;
+      }
+
+      .message__btn {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .follow__btn {
+        background-color: rgb(0, 18, 49);
+        color: #fff;
+      }
+    }
+
+    .followers__container {
+      grid-area: followers;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      height: 0;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+
+      &--open {
+        height: 100%;
+      }
+
+      .followers__list {
+        display: grid;
+        grid-template-columns: 100%;
+        gap: 2rem;
+        padding: 1rem min(5vw, 3.5rem);
+        overflow: auto;
+
+        .followers__item {
+          display: grid;
+          grid-template-areas: "img name" "btns btns";
+          grid-template-columns: min(30%, 7.5rem) 1fr;
+          gap: 0 2rem;
+          align-items: center;
+
+          @media screen and (min-width: 768px) {
+            grid-template-areas: "img name btns";
+            grid-template-columns: min(30%, 7.5rem) 1fr auto;
+          }
+
+          .img__container {
+            grid-area: img;
+            width: 100%;
+
+            .follower__img {
+              width: 100%;
+              border-radius: 50%;
+            }
+          }
+
+          .follower__username {
+            grid-area: name;
+            margin-right: auto;
+            color: rgba(0, 0, 0, 0.7);
+            word-break: break-all;
+
+            @media screen and (min-width: 576px) {
+              word-break: unset;
+            }
+          }
+
+          .follower__btns {
+            grid-area: btns;
+            display: grid;
+            gap: 1rem;
+
+            @media screen and (min-width: 576px) {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .follower__btn {
+              display: grid;
+              grid-template-columns: auto 1fr;
+              align-items: center;
+              justify-items: center;
+              gap: 1rem;
+              width: 100%;
+              padding: min(3vw, 1rem) min(5vw, 1.5rem);
+              border: none;
+              border-radius: 0.5rem;
+              font-size: 90%;
+              background-color: rgb(0, 18, 49);
+              color: #fff;
+              cursor: pointer;
+              transition: all 0.3s ease-in-out;
+
+              &:hover {
+                opacity: 0.75;
+              }
+            }
+
+            .follower__github {
+              background-color: rgba(0, 0, 0, 0.1);
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 576px) {
+      max-height: 80vh;
+      grid-template-areas: "img content" "img content" "actions actions" "followers followers";
+      grid-template-columns: 30% 1fr;
+      grid-template-rows: repeat(3, auto) 1fr;
+      justify-items: flex-start;
+      gap: 2rem;
+    }
+
+    @media screen and (min-width: 768px) {
+      grid-template-areas: "img content actions" "img content actions" "followers followers followers";
+      width: min(100%, 80rem);
+      grid-template-columns: 20% 1fr auto;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(0, 27, 75);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(81, 98, 126);
+  }
+}
+
+.successful__fetch {
+  background-image: linear-gradient(
+    141deg,
+    rgb(0, 75, 50),
+    rgb(2, 122, 86),
+    rgb(152, 220, 192),
+    rgb(214, 238, 234)
+  );
+}
+
+.unsuccessful__fetch {
+  background-image: linear-gradient(
+    141deg,
+    rgb(75, 61, 0),
+    rgb(122, 104, 2),
+    rgb(220, 208, 152),
+    rgb(238, 238, 214)
+  );
+}

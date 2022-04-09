@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./Assets/Images/GitHub-Mark-32px.png"
+    />
+
+    <link rel="stylesheet" href="./Styles/main.css" />
+
+    <title>Github Profile</title>
+  </head>
+
+  <body>
+    <main id="main">
+      <form action="" id="username-form" class="username__form">
+        <input
+          type="text"
+          name="username"
+          id="username"
+          class="username__input"
+          placeholder="Enter Github Username"
+        />
+        <button type="submit" id="username-submit-btn" class="username__submit">
+          <ion-icon name="search-outline"></ion-icon>
+        </button>
+      </form>
+
+      <section id="profile" class="profile__container">
+        <div class="img__container">
+          <img src="" alt="profile" id="profile-img" class="profile__img" />
+        </div>
+
+        <div class="content__container">
+          <p id="profile-name" class="profile__name">
+            <a href="#" id="profile-link" class="profile__link"></a>
+            <span id="profile-username" class="profile__username"></span>
+          </p>
+
+          <p id="profile-location" class="profile__location"></p>
+
+          <div class="activity__container">
+            <p class="activity activity__posts">
+              <span id="posts-count"></span>
+              repositories
+            </p>
+            <p id="followers" class="activity activity__followers">
+              <span id="followers-count"></span>
+              followers
+            </p>
+            <p id="followings" class="activity activity__following">
+              <span id="following-count"></span>
+              following
+            </p>
+          </div>
+
+          <div class="info__container">
+            <p id="profile-bio" class="profile__bio"></p>
+            <p>
+              <a href="#" id="profile-blog" class="profile__blog"> </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="actions__container">
+          <button id="message-btn" class="action__btn message__btn">
+            Message
+          </button>
+          <button id="follow-btn" class="action__btn follow__btn">
+            Follow
+          </button>
+        </div>
+
+        <section id="followers-display" class="followers__container">
+          <h2>Followers</h2>
+          <ul id="followers-list" class="followers__list"></ul>
+        </section>
+      </section>
+
+      <div id="snackbar" class="snackbar"></div>
+    </main>
+
+    <script src="./index.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
