@@ -67,6 +67,8 @@ const displayProfile = (data) => {
   const profileTwitter = document.querySelector("#profile-twitter");
   const profileHireable = document.querySelector("#profile-hireable");
 
+  usernameInput.value = login;
+
   profileContainer.classList.add("profile__container--fetched");
   profileImg.src = avatar_url;
   profileLink.href = html_url;
