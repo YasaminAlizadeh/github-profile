@@ -99,7 +99,7 @@ const displayProfile = (data) => {
       : `${Math.floor((following * 10) / 1000) / 10}K`;
   profileBio.innerText = bio;
   profileBlog.href = blog;
-  profileBlog.innerText = `https://${blog}`;
+  profileBlog.innerText = blog && `https://${blog}`;
   hireable && profileHireable.classList.add("profile__hireable--visible");
   //   profileTwitter.href = `https://twitter.com/${twitter_username}`;
 };
