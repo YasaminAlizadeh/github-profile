@@ -31,5 +31,7 @@ Check out the live demo of the project [here](https://yasaminalizadeh.github.io/
 Here are some screenshots of the GitHub Profile Viewer in action:
 
 ![image](https://user-images.githubusercontent.com/68509830/232152439-70ad25e0-95e5-462e-9795-16d68d1e3584.png)
+
 ![image](https://user-images.githubusercontent.com/68509830/232152539-9f2942c4-6d6f-4e97-be9c-328cf73e9266.png)
+
 ![image](https://user-images.githubusercontent.com/68509830/232152759-ebf9ee41-423b-4e51-b727-0e7d6f5cecd6.png)
